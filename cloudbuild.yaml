@@ -4,19 +4,19 @@ steps:
       [
         "build",
         "-t",
-        "us-central1-docker.pkg.dev/monorepo-cicd-test/gke-repo/quickstart-image",
+        "us-central1-docker.pkg.dev/monorepo-cicd-test/image-repository/quickstart-image",
         "./app1",
       ]
     id: "Build Docker Image"
 
     # images:
-    # - 'us-central1-docker.pkg.dev/monorepo-cicd-test/gke-repo/quickstart-image'
+    # - 'us-central1-docker.pkg.dev/monorepo-cicd-test/image-repository/quickstart-image'
 
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
         "push",
-        "us-central1-docker.pkg.dev/monorepo-cicd-test/gke-repo/quickstart-image",
+        "us-central1-docker.pkg.dev/monorepo-cicd-test/image-repository/quickstart-image",
       ]
     id: "Push Docker Image"
 
@@ -25,19 +25,19 @@ steps:
       [
         "build",
         "-t",
-        "us-central1-docker.pkg.dev/monorepo-cicd-test/gke-repo/flask-image",
+        "us-central1-docker.pkg.dev/monorepo-cicd-test/image-repository/flask-image",
         "./app2",
       ]
     id: "Build Docker Image2"
 
     # images:
-    # - 'us-central1-docker.pkg.dev/monorepo-cicd-test/gke-repo/quickstart-image'
+    # - 'us-central1-docker.pkg.dev/monorepo-cicd-test/image-repository/quickstart-image'
 
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
         "push",
-        "us-central1-docker.pkg.dev/monorepo-cicd-test/gke-repo/flask-image",
+        "us-central1-docker.pkg.dev/monorepo-cicd-test/image-repository/flask-image",
       ]
     id: "Push Docker Image2"
 
