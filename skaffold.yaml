@@ -1,13 +1,23 @@
 apiVersion: skaffold/v4beta9
 kind: Config
-build:
-  tagPolicy:
-    gitCommit: {}
-  local: {}
-manifests:
-  rawYaml:
-    - ./kubernetes/*
-deploy:
-  kubectl: {}
-  logs:
-    prefix: container
+metadata:
+  name: my-app
+
+profiles:
+  - name: dev
+    deploy:
+      kubectl:
+        manifests:
+          - deploy/dev.yaml
+
+  - name: uat
+    deploy:
+      kubectl:
+        manifests:
+          - deploy/uat.yaml
+
+  - name: prod
+    deploy:
+      kubectl:
+        manifests:
+          - deploy/prod.yaml
